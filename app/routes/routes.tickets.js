@@ -9,10 +9,10 @@ import { crearTicket, mostrarTicket, listarTicket, actualizarTicket, eliminarTic
 
 //Declarar variables
 const rutaTicket = Router();
-const upload = multer({dest : "app/public/uploads/"})
+// const upload = multer({dest : "app/public/uploads/"})
 
 //Para ir a cada ruta de los tickets
-rutaTicket.post("/tickets", upload.single("archivo"), crearTicket);
+rutaTicket.post("/tickets", crearTicket);
 rutaTicket.get("/tickets/:id", mostrarTicket);
 rutaTicket.get("/tickets/", listarTicket);
 rutaTicket.put("/tickets",  actualizarTicket);

@@ -6,10 +6,10 @@ import fs from "node:fs";
 export const crearTicket = async(req, res)=>{
     let info = req.body;
 
-    const archivo = req.file;
-    const desti=req.file.destination+archivo.originalname
-    fs.renameSync(req.file.path, desti);
-    console.log(desti);
+    // const archivo = req.file;
+    // const desti=req.file.destination+archivo.originalname
+    // fs.renameSync(req.file.path, desti);
+    // console.log(desti);
 
     try {
 
@@ -20,7 +20,7 @@ export const crearTicket = async(req, res)=>{
             ${info.id}, '${info.fecha}',
             '${info.nombre_usuario}', '${info.email_cliente}',
             '${info.prioridad }', '${info.mensaje}',
-            '${archivo.originalname}'
+            '${info.archivo}'
         )
     `);
     if(resultado[0].affectedRows > 0 ){
@@ -292,7 +292,7 @@ export const actualizarSolucion = async(req, res)=>{
     `);
     if(resultado[0].affectedRows > 0 ){
         res.json({
-            respuesta:"solucion modoficada"
+            respuesta:"solucion modificada"
         })
     } else{
         res.json({
