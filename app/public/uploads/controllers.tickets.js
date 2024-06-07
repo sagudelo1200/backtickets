@@ -286,8 +286,7 @@ export const actualizarSolucion = async(req, res)=>{
         let resultado = await pool.query(` 
             update solucion
             set
-            estado_ticket = '${info.estado_ticket}',
-            solucion = '${info.solucion}'
+            estado_ticket = '${info.estado_ticket}'
             where serie =  '${info.serie}'
     `);
     if(resultado[0].affectedRows > 0 ){

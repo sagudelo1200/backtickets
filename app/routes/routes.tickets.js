@@ -1,4 +1,6 @@
 import { Router, json } from "express";
+import multer from "multer";
+
 
 //importar las variables
 import { crearTicket, mostrarTicket, listarTicket, actualizarTicket, eliminarTicket, 
@@ -7,9 +9,10 @@ import { crearTicket, mostrarTicket, listarTicket, actualizarTicket, eliminarTic
 
 //Declarar variables
 const rutaTicket = Router();
+const upload = multer({dest : "app/public/uploads/"})
 
 //Para ir a cada ruta de los tickets
-rutaTicket.post("/tickets",  crearTicket);
+rutaTicket.post("/tickets", upload.single("archivo"), crearTicket);
 rutaTicket.get("/tickets/:id", mostrarTicket);
 rutaTicket.get("/tickets/", listarTicket);
 rutaTicket.put("/tickets",  actualizarTicket);
