@@ -204,11 +204,11 @@ export const atencionTicket = async(req, res)=>{
 
     try {
         let resultado = await pool.query(`
-        insert into solucion (serie, estado_ticket, solucion, usuario) values
+        insert into solucion (serie, estado_ticket, solucion) values
         (
              '${info.serie}',
-            '${info.estado_ticket}', '${info.solucion}',
-            '${info.usuario}'
+            '${info.estado_ticket}', '${info.solucion}'
+            
            
         )
     `);
